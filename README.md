@@ -1,110 +1,86 @@
-# house-price-prediction-decision-tree
-Predicting housing prices using Decision Tree Regressor with hyperparameter tuning, model evaluation, and feature importance analysis
-# House Price Prediction Using Decision Tree Regressor
+# Decision Tree & Random Forest Regression
 
-## Overview
-This project builds a Decision Tree regression model to predict housing prices and analyze how different features influence predictions.
+## Project Overview
 
-The goal is to compare model performance, understand feature importance, and visualize how decisions are made within the model.
+This project explores tree-based machine learning algorithms for predicting median house values.
 
----
+The objective is to understand how Decision Trees make predictions through feature-based splits and how Random Forest combines multiple trees to produce predictions.
 
 ## Dataset
-The dataset contains 20,000+ housing records with features including:
 
-- Longitude & Latitude
-- Housing Median Age
-- Total Rooms & Bedrooms
-- Population & Households
-- Median Income
-- Median House Value (target variable)
+**housing.csv**
 
----
+The dataset includes housing characteristics such as location, housing age, room counts, population, households, and median income.
+
+**Target Variable:** Median house value
 
 ## Tools & Libraries
-- Python
-- pandas
-- numpy
-- scikit-learn
-- matplotlib
 
----
+Python | Pandas | Matplotlib | Scikit-learn
 
-## Data Preparation
+## Methodology
 
-- Removed missing values
-- Selected numerical features for modeling
-- Split data into training (80%) and testing (20%)
+### 1. Data Preparation
 
----
+- Loaded and inspected the housing dataset.
+- Removed missing values.
+- Selected numerical predictor variables.
+- Split the dataset into training and testing sets.
 
-## Model Building
+### 2. Decision Tree Regression
 
-- Used `DecisionTreeRegressor` from scikit-learn
-- Tuned key hyperparameters:
-  - `max_depth = 10`
-  - `min_samples_split = 20`
-  - `min_samples_leaf = 10`
-- Set `random_state = 42` for reproducibility
+Trained a Decision Tree Regressor with controlled tree depth and minimum sample requirements.
 
----
+Explored:
 
-## Model Evaluation
+- Root nodes and decision nodes
+- Leaf nodes
+- Feature-based splitting
+- Overfitting and underfitting
 
-### Training Performance:
-- R² Score: 0.805  
-- MAE: ~34,361  
+### 3. Model Evaluation
 
-### Testing Performance:
-- R² Score: 0.731  
-- MAE: ~40,685  
+Generated predictions for training and testing data.
 
-### Interpretation:
-- Model performs well on training data
-- Slight drop on test data indicates minor overfitting
-- Still generalizes well overall
+Evaluated performance using:
 
----
+- R² Score
+- Mean Absolute Error (MAE)
 
-## Feature Importance
+### 4. Feature Importance
 
-Top contributing features:
-- Median Income (most important)
-- Longitude
-- Latitude
+Analyzed the contribution of individual features to the model's predictions.
 
-Lower impact:
-- Total rooms
-- Bedrooms
-- Households
+Visualized the decision tree to better understand its structure and decision-making process.
 
----
+### 5. Random Forest Regression
 
-## Visualization
+Implemented Random Forest Regression to explore ensemble learning.
 
-- Plotted feature importance rankings
-- Visualized decision tree structure (first 3 levels)
-- Observed how model splits data based on key features
+Random Forest combines predictions from multiple decision trees to produce a final prediction.
 
----
+Compared model performance and examined Random Forest feature importance.
 
-## Key Insights
+## Key Takeaways
 
-- Median income is the strongest predictor of house prices  
-- Location plays a significant role in determining value  
-- Decision trees provide clear interpretability compared to linear models  
+- Decision Trees make predictions through a series of feature-based decisions.
+- Tree depth and minimum sample settings influence model complexity.
+- Random Forest combines multiple trees to reduce reliance on a single tree.
+- Feature importance provides insight into which variables contribute most to predictions.
+- Comparing training and testing metrics helps identify potential overfitting.
 
----
+## Learning Outcomes
+
+- Decision Tree Regression
+- Random Forest Regression
+- Ensemble learning
+- Model evaluation
+- Feature importance analysis
+- Decision tree visualization
 
 ## Future Improvements
 
-- Tune hyperparameters using GridSearchCV
-- Compare with Random Forest / Gradient Boosting
-- Apply feature scaling and engineering
-- Prune tree to reduce overfitting
-
----
-
-## Conclusion
-
-The Decision Tree model provides strong predictive performance and valuable interpretability, making it useful for understanding key drivers of housing prices.
+- Perform hyperparameter tuning.
+- Compare both models using a consolidated performance table.
+- Explore additional ensemble methods.
+- Apply cross-validation for more reliable evaluation.
